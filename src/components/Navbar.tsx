@@ -48,56 +48,71 @@ export default function Navbar() {
               </a>
             ))}
           </nav>
-          {/* Mobile hamburger */}
+          {/* Mobile hamburger/close button */}
           <button
             type="button"
-            aria-label="Abrir menú"
+            aria-label={open ? "Cerrar menú" : "Abrir menú"}
             aria-expanded={open}
             className="md:hidden inline-flex items-center justify-center rounded-xl p-2 text-black hover:text-zinc-700 transition-colors bg-white/40 backdrop-blur-xl shadow z-50"
             onClick={() => setOpen((v) => !v)}
           >
-            <svg
-              className={`h-6 w-6 ${open ? "hidden" : "block"}`}
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5" />
-            </svg>
-            <svg
-              className={`h-6 w-6 ${open ? "block" : "hidden"}`}
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
+            {open ? (
+              <svg
+                className="h-6 w-6"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg
+                className="h-6 w-6"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5" />
+              </svg>
+            )}
           </button>
         </div>
       </div>
       
       {/* Full-screen mobile menu overlay */}
       <div
-        className={`md:hidden fixed inset-0 bg-black/90 backdrop-blur-xl transition-all duration-300 z-40 ${
+        className={`md:hidden fixed inset-0 bg-black/90 backdrop-blur-xl transition-all duration-300 z-[60] ${
           open ? "opacity-100 visible" : "opacity-0 invisible"
         }`}
       >
+
+        
         <div className="flex flex-col items-center justify-center h-full">
           <nav className="text-center">
             <ul className="flex flex-col gap-8">
               {navItems.map((item) => (
                 <li key={item.href}>
-                  <a
-                    href={item.href}
-                    className="block text-3xl font-medium text-white hover:text-zinc-300 transition-colors"
-                    onClick={() => setOpen(false)}
-                  >
-                    {item.label}
-                  </a>
+                  {item.href.startsWith('/') ? (
+                    <Link
+                      href={item.href}
+                      className="block text-3xl font-medium text-white hover:text-zinc-300 transition-colors"
+                      onClick={() => setOpen(false)}
+                    >
+                      {item.label}
+                    </Link>
+                  ) : (
+                    <a
+                      href={item.href}
+                      className="block text-3xl font-medium text-white hover:text-zinc-300 transition-colors"
+                      onClick={() => setOpen(false)}
+                    >
+                      {item.label}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
