@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff; /* default body/hero background */
+  --foreground: #000000; /* pure black text for light mode */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-montserrat);
+}
+
+html, body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+/* Smooth section reveal */
+.section {
+  @apply opacity-100 translate-y-0 transition-all duration-700 ease-out;
+}
+
+.container-section {
+  @apply max-w-6xl mx-auto px-2 sm:px-0;
+}
+
+/* Force all text to black inside containers that opt-in */
+.all-black *, .all-black {
+  color: #000 !important;
+}
