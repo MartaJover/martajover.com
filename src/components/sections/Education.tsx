@@ -9,11 +9,11 @@ const education = [
 export default function Education() {
   return (
     <section className="section container-section">
-      <h2 className="text-2xl sm:text-3xl text-white font-medium mb-8">Educación</h2>
-      <ul className="space-y-2 text-zinc-300">
+      <h2 className="text-2xl sm:text-3xl text-indigo-900 font-medium mb-8">Educación</h2>
+      <ul className="space-y-2 text-black">
         {education.map((e) => (
           <li key={e} className="flex items-start gap-2">
-            <span className="mt-2 size-1.5 rounded-full bg-zinc-500" />
+            <span className="mt-2 size-1.5 rounded-full bg-gray-500" />
             <span>{e}</span>
           </li>
         ))}

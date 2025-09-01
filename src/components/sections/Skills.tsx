@@ -9,24 +9,24 @@ const soft = [
 export default function Skills() {
   return (
     <section id="skills" className="section container-section">
-      <h2 className="text-2xl sm:text-3xl text-white font-medium mb-8">Skills</h2>
+      <h2 className="text-2xl sm:text-3xl text-indigo-900 font-medium mb-8">Skills</h2>
       <div className="grid md:grid-cols-2 gap-10">
         <div>
-          <h3 className="text-white font-medium mb-4">Stack técnico</h3>
+          <h3 className="text-black font-medium mb-4">Stack técnico</h3>
           <ul className="flex flex-wrap gap-2">
             {tech.map((s) => (
-              <li key={s} className="px-3 py-1.5 rounded-full border border-white/10 text-sm text-zinc-300">
+              <li key={s} className="px-3 py-1.5 rounded-full border border-gray-300 text-sm text-black">
                 {s}
               </li>
             ))}
           </ul>
         </div>
         <div>
-          <h3 className="text-white font-medium mb-4">Habilidades</h3>
-          <ul className="space-y-2 text-zinc-300">
+          <h3 className="text-black font-medium mb-4">Habilidades</h3>
+          <ul className="space-y-2 text-black">
             {soft.map((s) => (
               <li key={s} className="flex items-start gap-2">
-                <span className="mt-2 size-1.5 rounded-full bg-zinc-500" />
+                <span className="mt-2 size-1.5 rounded-full bg-gray-500" />
                 <span>{s}</span>
               </li>
             ))}
