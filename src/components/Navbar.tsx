@@ -43,8 +43,18 @@ export default function Navbar() {
           </Link>
           <nav className="hidden md:flex items-center gap-7 text-base sm:text-lg text-black">
             {navItems.map((item) => (
-              <a key={item.href} href={item.href} className="hover:text-zinc-700 transition-colors">
-                {item.label}
+              <a 
+                key={item.href} 
+                href={item.href} 
+                className="relative px-4 py-2 rounded-full transition-all duration-300 group hover:scale-105 border border-transparent hover:border-purple-100"
+              >
+                {/* Light lavender background */}
+                <div className="absolute inset-0 rounded-full bg-purple-50/80 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                
+                {/* Text */}
+                <span className="relative z-10 text-black group-hover:text-black font-medium transition-colors duration-300">
+                  {item.label}
+                </span>
               </a>
             ))}
           </nav>
@@ -89,10 +99,27 @@ export default function Navbar() {
           open ? "opacity-100 visible" : "opacity-0 invisible"
         }`}
       >
-
+        {/* Close button positioned on top of overlay */}
+        <button
+          type="button"
+          aria-label="Cerrar menú"
+          className="absolute top-6 right-6 z-[70] inline-flex items-center justify-center rounded-xl p-3 text-white hover:text-zinc-300 transition-colors bg-white/20 backdrop-blur-xl shadow-lg"
+          onClick={() => setOpen(false)}
+        >
+          <svg
+            className="h-6 w-6"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={2}
+            stroke="currentColor"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
         
-        <div className="flex flex-col items-center justify-center h-full">
-          <nav className="text-center">
+        <div className="flex flex-col items-start justify-start h-full pt-24 px-8">
+          <nav className="text-left">
             <ul className="flex flex-col gap-8">
               {navItems.map((item) => (
                 <li key={item.href}>

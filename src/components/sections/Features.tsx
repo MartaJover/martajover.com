@@ -27,6 +27,14 @@ export default function Features() {
   return (
     <section className="pt-12 py-8 px-6 sm:px-8 md:px-10 lg:px-12 bg-indigo-50">
       <div className="max-w-6xl mx-auto">
+        {/* Sobre mí Section */}
+        <div className="text-center mb-16">
+          <h2 className="text-2xl sm:text-3xl text-indigo-900 font-medium mb-4">Sobre mí</h2>
+          <p className="text-black max-w-3xl mx-auto leading-relaxed">
+            Soy diseñadora UX/UI y desarrolladora Front-End. Me apasiona crear interfaces limpias, intuitivas y efectivas, combinando diseño y desarrollo. Tengo experiencia en diseño orientado a datos, SEO, investigación de usuarios y trabajo con equipos multidisciplinares.
+          </p>
+        </div>
+
         {/* Features Grid */}
         <div className="grid grid-cols-2 md:grid-cols-2 gap-6 md:gap-12 mb-16">
           {features.map((feature, index) => (
